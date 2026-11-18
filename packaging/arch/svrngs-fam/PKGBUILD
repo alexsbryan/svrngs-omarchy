@@ -1,7 +1,7 @@
 # Maintainer: Alex Bryan
 # svrngs.fam, svrngs in the Omarchy bar, from its tagged release.
 pkgname=svrngs-fam
-pkgver=0.2.1
+pkgver=0.3.0
 pkgrel=1
 pkgdesc="Omarchy bar plugin for svrngs: lend what you're building, use your people's models, invite"
 arch=('any')
@@ -9,8 +9,13 @@ url="https://github.com/alexsbryan/svrngs-fam"
 license=('MIT')
 depends=('svrngs' 'python' 'iproute2' 'wl-clipboard' 'gnupg')
 install=svrngs-fam.install
-source=("$pkgname-$pkgver.tar.gz::$url/archive/refs/tags/v$pkgver.tar.gz")
-sha256sums=('74ef7f7eb239e8fbc6b89a4a79907b289ad2c1e52c2b13a9baa2ba5b496b45db')
+# The plugin from its tag; the two setups, which the plugin doesn't carry,
+# from here.
+source=("$pkgname-$pkgver.tar.gz::$url/archive/refs/tags/v$pkgver.tar.gz"
+        setup-user setup-svrngs)
+sha256sums=('f392d9b8e459fe793750245dfffde3203386f6bc75e669337ae52e2123a2b787'
+            '125827caeaf2ca81752f2b0dcfda43a7cd646b77090ffb46a6fb2eac90ffe7f3'
+            '8c3867de771a4bb199c980f3e49c75775e6a665fae740e49b37f1f9e8c352ce0')
 
 package() {
   local src="$srcdir/$pkgname-$pkgver"
@@ -19,7 +24,8 @@ package() {
   install -Dm644 -t "$dest" "$src/Panel.qml" "$src/Service.qml" "$src/Model.js" "$src/SvrngsMark.qml"
   install -Dm644 -t "$dest/i18n" "$src"/i18n/*.json
   install -Dm755 "$src/bin/svrngs-fam" "$dest/bin/svrngs-fam"
-  install -Dm755 "$src/setup-user" "$dest/setup-user"
+  install -Dm755 "$srcdir/setup-user" "$dest/setup-user"
+  install -Dm755 "$srcdir/setup-svrngs" "$dest/setup-svrngs"
   install -Dm644 -t "$dest/keys" "$src/keys/svrngs-release-key.asc" "$src/keys/svrngs-release-key.fpr"
   install -Dm644 "$src/LICENSE" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }

@@ -26,7 +26,7 @@ def setup(home, shell_up=True):
         f'#!/bin/bash\nprintf "%s\\n" "$*" >> "$HOME/shell-calls"\n[[ $1 == -q ]] && exit 0\n{answer}\n')
     (stubs / "omarchy-shell").chmod(0o755)
     env = {"HOME": str(home), "PATH": f"{stubs}:/usr/bin:/bin", "SVRNGS_FAM_DIR": str(ROOT)}
-    done = subprocess.run(["bash", str(ROOT / "setup-user")], env=env, capture_output=True, text=True, timeout=30)
+    done = subprocess.run(["bash", str(ROOT / "packaging/arch/svrngs-fam/setup-user")], env=env, capture_output=True, text=True, timeout=30)
     calls = (home / "shell-calls").read_text().splitlines() if (home / "shell-calls").exists() else []
     (home / "shell-calls").unlink(missing_ok=True)
     return done, calls

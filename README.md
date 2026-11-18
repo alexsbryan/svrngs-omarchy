@@ -64,9 +64,13 @@ export BUILDDIR=/tmp/svrngs-build PKGDEST=/tmp/svrngs-build/out SRCDEST=/tmp/svr
 The first builds `svrngs-give-bin` beside `svrngs-bin`, as svrngs's does.
 
 `setup-svrngs` moves an install made by svrngs's install line or by Get
-svrngs aside, and starts the packaged svrngs in its place. It's the
-plugin's, not svrngs's, so the `svrngs-fam` package is to install it as
-`/usr/share/svrngs-fam/setup-svrngs`; 0.2.1 predates it.
+svrngs aside, and starts the packaged svrngs in its place. `setup-user`
+links the packaged plugin into Omarchy and puts it in the bar once. Both
+are the plugin package's, not the plugin's, so they live beside its recipe
+in `packaging/arch/svrngs-fam/`, and from 0.3.0 the `svrngs-fam` package
+installs them in `/usr/share/svrngs-fam/`. The packages on the plugin's
+v0.2.1 release predate that, which is why its steps above still name
+`/usr/share/svrngs/setup-user`.
 
 `omarchy/` has drafts of `omarchy install service svrngs` and its removal,
 for proposing to Omarchy.

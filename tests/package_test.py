@@ -18,7 +18,7 @@ import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SETUP = ROOT / "setup-svrngs"
+SETUP = ROOT / "packaging/arch/svrngs-fam/setup-svrngs"
 failures = []
 
 
