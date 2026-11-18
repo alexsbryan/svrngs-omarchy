@@ -1,0 +1,6 @@
+#!/bin/bash
+# Every test here. A few seconds.
+set -e
+cd "$(dirname "$0")"
+./package_test.py | tail -1
+./setup_test.py | tail -1

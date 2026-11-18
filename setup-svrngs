@@ -1,0 +1,38 @@
+#!/bin/bash
+# svrngs for this person, from the package. An install made by svrngs's own
+# install line (its binary in ~/.local/bin, its service in
+# ~/.config/systemd/user) is moved aside, never deleted, and the packaged
+# service runs in its place. ~/.svrngs, the person's groups, lends and data,
+# is never touched. Safe to run again.
+set -euo pipefail
+
+config_home="${XDG_CONFIG_HOME:-$HOME/.config}"
+unit="$config_home/systemd/user/svrngs.service"
+launcher="$HOME/.local/bin/svrngs"
+aside=".before-package.$(date +%s)"
+
+# The install line's service names its own binary, and shadows the packaged
+# one while it is there.
+if [[ -f $unit ]] && ! grep -qx 'ExecStart=/usr/bin/svrngs' "$unit"; then
+  systemctl --user disable --now svrngs.service 2>/dev/null || true
+  mv "$unit" "$unit$aside"
+  echo "svrngs's own service is moved aside: $unit$aside"
+fi
+# Its binary, which updated itself; kept, and the name points at the package's.
+if [[ -f $launcher && ! -L $launcher ]]; then
+  mv "$launcher" "$launcher$aside"
+  echo "svrngs's own binary is moved aside: $launcher$aside"
+fi
+if [[ ! -e $launcher && ! -L $launcher ]]; then
+  mkdir -p "${launcher%/*}"
+  ln -s /usr/bin/svrngs "$launcher"
+fi
+
+systemctl --user daemon-reload
+systemctl --user enable --now svrngs.service
+for (( attempt = 0; attempt < 50; attempt++ )); do
+  systemctl --user -q is-active svrngs.service && exit 0
+  sleep 0.1
+done
+echo "svrngs did not start. See: systemctl --user status svrngs" >&2
+exit 1

@@ -1,0 +1,7 @@
+post_install() {
+  echo "svrngs.fam: as yourself, run /usr/share/svrngs-fam/setup-user to put it in Omarchy's bar."
+}
+
+post_upgrade() {
+  echo "svrngs.fam: run 'omarchy restart shell' to load the new version."
+}

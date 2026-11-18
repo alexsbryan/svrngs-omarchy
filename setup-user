@@ -1,0 +1,35 @@
+#!/bin/bash
+# svrngs.fam for this person: link the packaged plugin into Omarchy's
+# plugins and put it in the bar's right section, once. Safe to run again;
+# a later run never moves the icon after the person has placed it.
+set -euo pipefail
+
+payload="${SVRNGS_FAM_DIR:-/usr/share/svrngs-fam}"
+config_home="${XDG_CONFIG_HOME:-$HOME/.config}"
+plugins="$config_home/omarchy/plugins"
+pending="$config_home/svrngs-fam/bar.pending"
+
+# Only a first install places the icon.
+if [[ ! -e $plugins/svrngs.fam && ! -L $plugins/svrngs.fam ]]; then
+  mkdir -p "${pending%/*}"
+  touch "$pending"
+fi
+mkdir -p "$plugins"
+ln -sfn "$payload" "$plugins/svrngs.fam"
+omarchy-shell -q shell rescanPlugins
+
+if [[ -f $pending ]]; then
+  for (( attempt = 0; attempt < 50; attempt++ )); do
+    placed=$(omarchy-shell shell putBarWidget svrngs.fam '{"section":"right"}' 2>/dev/null) || placed=""
+    if [[ $placed == "ok" ]]; then
+      rm "$pending"
+      break
+    elif [[ -z $placed ]]; then
+      break
+    fi
+    sleep 0.1
+  done
+  if [[ -f $pending ]]; then
+    echo "svrngs.fam is installed; it goes in the bar the next time this runs with Omarchy's shell up." >&2
+  fi
+fi

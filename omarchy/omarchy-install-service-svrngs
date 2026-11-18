@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# omarchy:summary=Install svrngs, to lend what you run to your people and use what they lend, with its bar plugin.
+# omarchy:requires-sudo=true
+
+echo -e "\nInstalling svrngs..."
+omarchy-pkg-add svrngs-bin svrngs-fam
+
+echo -e "\nStarting svrngs..."
+/usr/share/svrngs-fam/setup-svrngs
+
+echo -e "\nAdding svrngs to the bar..."
+/usr/share/svrngs-fam/setup-user
+
+echo -e "\nsvrngs is running. Open a group's invite link to join it, or run: svrngs new <name>"

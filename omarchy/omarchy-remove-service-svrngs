@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# omarchy:summary=Remove svrngs and its bar plugin, keeping your groups in ~/.svrngs.
+# omarchy:requires-sudo=true
+
+systemctl --user disable --now svrngs.service 2>/dev/null || true
+omarchy-plugin-disable svrngs.fam
+rm -f "${XDG_CONFIG_HOME:-$HOME/.config}/omarchy/plugins/svrngs.fam"
+omarchy-pkg-drop svrngs-fam svrngs-bin
+
+echo ""
+echo "svrngs has been removed. Your groups are kept in ~/.svrngs."
