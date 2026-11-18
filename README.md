@@ -27,10 +27,10 @@ sudo pacman -U svrngs-bin-1.11.1-1-x86_64.pkg.tar.zst svrngs-fam-0.2.1-1-any.pkg
 
 If you already run svrngs from its install line, setup moves that copy
 aside rather than deleting it, and your groups carry on as before. These
-packages don't update themselves, and they aren't signed, though the
-svrngs inside is checked against the svrngs release key when they're
-built. The packages aren't signed, so pacman installs them from files
-you've downloaded and checked, not straight from a link.
+packages don't update themselves. They aren't signed either, so pacman
+installs them from files you've downloaded and checked, not straight from
+a link, though the svrngs inside is checked against the svrngs release key
+when they're built.
 
 ## Packages
 
