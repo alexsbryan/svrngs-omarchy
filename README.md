@@ -10,6 +10,28 @@ None of this is the plugin. The plugin installs and runs without it, and
 lives in its own repository so that what Omarchy's plugin marketplace
 reviews is only the plugin.
 
+## Install the packages
+
+The plugin's latest release carries both packages. Download them, check
+them, install them, then start each as yourself:
+
+```
+mkdir -p ~/Downloads/svrngs && cd ~/Downloads/svrngs
+U=https://github.com/alexsbryan/svrngs-fam/releases/download/v0.2.1
+curl -fLO $U/SHA256SUMS -fLO $U/svrngs-bin-1.11.1-1-x86_64.pkg.tar.zst -fLO $U/svrngs-fam-0.2.1-1-any.pkg.tar.zst
+sha256sum -c SHA256SUMS
+sudo pacman -U svrngs-bin-1.11.1-1-x86_64.pkg.tar.zst svrngs-fam-0.2.1-1-any.pkg.tar.zst
+/usr/share/svrngs/setup-user
+/usr/share/svrngs-fam/setup-user
+```
+
+If you already run svrngs from its install line, setup moves that copy
+aside rather than deleting it, and your groups carry on as before. These
+packages don't update themselves, and they aren't signed, though the
+svrngs inside is checked against the svrngs release key when they're
+built. The packages aren't signed, so pacman installs them from files
+you've downloaded and checked, not straight from a link.
+
 ## Packages
 
 `packaging/arch/` holds the two packages. `svrngs-bin` is svrngs's own
@@ -48,6 +70,32 @@ plugin's, not svrngs's, so the `svrngs-fam` package is to install it as
 
 `omarchy/` has drafts of `omarchy install service svrngs` and its removal,
 for proposing to Omarchy.
+
+## Remove svrngs
+
+Removing svrngs from a computer doesn't take you out of your groups;
+`svrngs leave <group>` does, so run that first for each group you want to
+leave. The plugin comes off with `omarchy plugin remove svrngs.fam`.
+
+If you got svrngs with the plugin's Get svrngs or svrngs's own install line:
+
+```
+systemctl --user disable --now svrngs
+rm ~/.local/bin/svrngs ~/.config/systemd/user/svrngs.service ~/.local/share/applications/svrngs.desktop
+```
+
+If you installed the packages:
+
+```
+systemctl --user disable --now svrngs
+sudo pacman -R svrngs-fam svrngs-bin
+```
+
+Either way, your groups' data stays in `~/.svrngs` until you delete that
+folder. The install line also added `~/.local/bin` to your PATH in
+`~/.bashrc` or `~/.zshrc`; you can leave that line. If `setup-svrngs` moved
+an older svrngs aside when you installed the packages, it's still there
+with `.before-package` in its name.
 
 ## Tests
 
