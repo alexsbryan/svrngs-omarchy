@@ -10,27 +10,13 @@ None of this is the plugin. The plugin installs and runs without it, and
 lives in its own repository so that what Omarchy's plugin marketplace
 reviews is only the plugin.
 
-## Install the packages
+## Installing them
 
-The plugin's latest release carries both packages. Download them, check
-them, install them, then start each as yourself:
-
-```
-mkdir -p ~/Downloads/svrngs && cd ~/Downloads/svrngs
-U=https://github.com/alexsbryan/svrngs-fam/releases/download/v0.2.1
-curl -fLO $U/SHA256SUMS -fLO $U/svrngs-bin-1.11.1-1-x86_64.pkg.tar.zst -fLO $U/svrngs-fam-0.2.1-1-any.pkg.tar.zst
-sha256sum -c SHA256SUMS
-sudo pacman -U svrngs-bin-1.11.1-1-x86_64.pkg.tar.zst svrngs-fam-0.2.1-1-any.pkg.tar.zst
-/usr/share/svrngs/setup-user
-/usr/share/svrngs-fam/setup-user
-```
-
-If you already run svrngs from its install line, setup moves that copy
-aside rather than deleting it, and your groups carry on as before. These
-packages don't update themselves. They aren't signed either, so pacman
-installs them from files you've downloaded and checked, not straight from
-a link, though the svrngs inside is checked against the svrngs release key
-when they're built.
+These packages are for Omarchy's package repository, which builds and
+signs what it ships. Until it carries them, install the plugin with
+`omarchy plugin add`, as [its README](https://github.com/alexsbryan/svrngs-fam#install)
+says, rather than installing these by hand: a package installs as root,
+and nothing here signs them.
 
 ## Packages
 
