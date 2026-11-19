@@ -54,9 +54,7 @@ svrngs aside, and starts the packaged svrngs in its place. `setup-user`
 links the packaged plugin into Omarchy and puts it in the bar once. Both
 are the plugin package's, not the plugin's, so they live beside its recipe
 in `packaging/arch/svrngs-fam/`, and from 0.3.0 the `svrngs-fam` package
-installs them in `/usr/share/svrngs-fam/`. The packages on the plugin's
-v0.2.1 release predate that, which is why its steps above still name
-`/usr/share/svrngs/setup-user`.
+installs them in `/usr/share/svrngs-fam/`.
 
 `omarchy/` has drafts of `omarchy install service svrngs` and its removal,
 for proposing to Omarchy.
