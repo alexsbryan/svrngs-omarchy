@@ -1,4 +1,4 @@
-# Copied by ../bump from svrngs packaging/arch/PKGBUILD@3b9a0506c0cc488c94d7b14c0cac86215182837a, with omarchy/updated-by's sum.
+# Copied by ../bump from svrngs packaging/arch/PKGBUILD@a6f091c059820a3d1b8cdf975a693342ac39e91f, with omarchy/updated-by's sum.
 # svrngs, and Give beside it, as pacman packages from svrngs's signed
 # GitHub Release: the bytes the group page's get/ serves
 # (scripts/build-release.sh). makepkg refuses a tarball unless its .sig is
@@ -13,7 +13,7 @@
 # the svrngs release that carries it.
 pkgbase=svrngs-bin
 pkgname=(svrngs-bin svrngs-give-bin)
-pkgver=1.11.1
+pkgver=1.12.2
 pkgrel=1
 pkgdesc="Keep what your group shares on your own computers"
 arch=('x86_64' 'aarch64')
@@ -22,7 +22,7 @@ license=('AGPL-3.0-or-later')
 options=('!strip' '!debug')
 validpgpkeys=('46B4D67C5E6621093BB1AB2B057BF9082AA03CFB') # the svrngs release key
 _get="$url/releases/download/v$pkgver"
-source=(updated-by svrngs.service svrngs.desktop give.service)
+source=(updated-by svrngs.service svrngs.desktop give.service svrngs.svg)
 source_x86_64=("svrngs-$pkgver-linux-x86_64.tar.gz::$_get/svrngs-linux-x86_64.tar.gz"
                "svrngs-$pkgver-linux-x86_64.tar.gz.sig::$_get/svrngs-linux-x86_64.tar.gz.sig"
                "give-$pkgver-linux-x86_64.tar.gz::$_get/give-linux-x86_64.tar.gz"
@@ -33,18 +33,19 @@ source_aarch64=("svrngs-$pkgver-linux-aarch64.tar.gz::$_get/svrngs-linux-aarch64
                 "give-$pkgver-linux-aarch64.tar.gz.sig::$_get/give-linux-aarch64.tar.gz.sig")
 sha256sums=('21349ecb41e038213940ee68a5ebf839fc8b111727dda38550b3941999ecc5e9'
             'ba3cfc72b741341a849434e0c86be29d73a4c40e6d9574dfc09696b8649b3b4d'
-            'b2cf8f1cf3f89a46e5e530de4ffc82ea3aa4bd05fec69f29c90fea402a16e885'
-            '6da9f803e0968bd48b8292f70718cfe07ce0553e26c0f2682519f3447ff3dc4c')
+            'd5a74c9218a57af83ed52a922b7b664ed43dce9f1bcd1f87c91e5589f027144e'
+            '6da9f803e0968bd48b8292f70718cfe07ce0553e26c0f2682519f3447ff3dc4c'
+            '167affad6218b4d1cf3aa15c3c9a427f474e0e71795a6f8d8ecc3f6e7e98c603')
 # Each tarball's sum is its line in the release's SHA256SUMS; each .sig's is
 # the sum of that asset as the release serves it, so none is SKIP.
-sha256sums_x86_64=('983a027f1c3a7ddaf2d8d509155876693c659c43dd03114591c290745ab976ea'
-                   '9da8e9097c95a74136b28d92047609aca9a466412599e2e09cf090f4edcade96'
-                   '7277cf615e0cb463de965dd5b37f6640cdfb8d153e5375915e5490e3ae11483b'
-                   'ac6868dcf4ee11aba15308bb79fd19cc1e981b9135b99c10e53d298e3fcdbc8c')
-sha256sums_aarch64=('822c6aa2bd7aca158115bacf68b78de0c0ea38bdc3786483241ea21fa9b09093'
-                    'd9d30b09484ef78cdbb3c5e9aea5de27541de569ed819f4057a0520876d3428d'
-                    '6af58313fdfcbc220d0a2a366c27e3ef0a7b072b748da93251382105aa55c222'
-                    'a2caf3e434127837666e008f7a4c0e2a86c46773dc3d7a56543dae2e72acc1fa')
+sha256sums_x86_64=('732df3e68b05b68e703b7f3005439e2b8032128bddfffbab22ac2179b7c2caaf'
+                   '354b1c66ad6bc5f60ad5bb632e2c08387c8abac986fe75c1d520783542b0a2c4'
+                   'db6ca730e859014c2d7a16df6337b6334a1fb91d88d84cdfce0d52567e324d67'
+                   '64a4b4342ee8512eeabeaa76c623ad920f0dcb28723ea604e587f0e83c646eb5')
+sha256sums_aarch64=('ceb109b1a6eb7b530f031502f2d89fde3d7a0434aac6940006bb812f81e27dfe'
+                    '19c05d96282d6923bcf4fb876a0a889e2c4440ce41e5416301547aaa164a5ee8'
+                    '08bea2fad40b500aa75ce3bb1b7473fb5a60cefb4a5b3ba288b7d54ec094d8bd'
+                    'f9266e9ad4000c88ea71c788ddf8d8d5601793a70e1e442040d92fb4c219a17a')
 
 package_svrngs-bin() {
   provides=('svrngs')
@@ -59,6 +60,9 @@ package_svrngs-bin() {
   # svrngs kept running at login, and the opener in the applications menu.
   install -Dm644 svrngs.service "$pkgdir/usr/lib/systemd/user/svrngs.service"
   install -Dm644 svrngs.desktop "$pkgdir/usr/share/applications/svrngs.desktop"
+  # The menu entry's icon (Icon=svrngs): the app icon, which
+  # docs/brand/src/build.mjs writes here beside docs/brand/icon.svg.
+  install -Dm644 svrngs.svg "$pkgdir/usr/share/icons/hicolor/scalable/apps/svrngs.svg"
 }
 
 package_svrngs-give-bin() {
