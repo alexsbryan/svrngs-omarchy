@@ -1,4 +1,4 @@
-# Copied by ../bump from svrngs packaging/arch/svrngs-give-bin.install@a6f091c059820a3d1b8cdf975a693342ac39e91f.
+# Copied by ../bump from svrngs packaging/arch/svrngs-give-bin.install@d4c9605e5c74d3a0081e3f69a3cf60554b429a2a.
 post_install() {
   echo "give: to keep apps for your groups whenever you log in, run as yourself:"
   echo "  systemctl --user enable --now give"
