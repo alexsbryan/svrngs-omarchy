@@ -1,7 +1,7 @@
 # Maintainer: Alex Bryan
 # svrngs.fam, svrngs in the Omarchy bar, from its tagged release.
 pkgname=svrngs-fam
-pkgver=0.4.3
+pkgver=0.5.0
 pkgrel=1
 pkgdesc="Omarchy bar plugin for svrngs: lend what you're building, use your people's models, invite"
 arch=('any')
@@ -13,7 +13,7 @@ install=svrngs-fam.install
 # from here.
 source=("$pkgname-$pkgver.tar.gz::$url/archive/refs/tags/v$pkgver.tar.gz"
         setup-user setup-svrngs)
-sha256sums=('ee1e4ee33c7e5aebf685dbd0544bc585c02bbe2677a24d1fa36624c7913f10ec'
+sha256sums=('977f96a07d5b7019714b762e1d2b3389e3b5f336a36cb8030e4f9938e1ea5e99'
             '125827caeaf2ca81752f2b0dcfda43a7cd646b77090ffb46a6fb2eac90ffe7f3'
             '8c3867de771a4bb199c980f3e49c75775e6a665fae740e49b37f1f9e8c352ce0')
 
