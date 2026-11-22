@@ -1,12 +1,12 @@
 # Where each file here came from. ../bump writes this folder: change
 # svrngs's packaging/arch or ../omarchy/, then run it again.
-.gitignore	svrngs packaging/arch/.gitignore@722468375ce924f54c40711021494cd7fda316a2
-PKGBUILD	svrngs packaging/arch/PKGBUILD@722468375ce924f54c40711021494cd7fda316a2, with omarchy/updated-by's sum
-give.service	svrngs packaging/arch/give.service@722468375ce924f54c40711021494cd7fda316a2
-keys/pgp/46B4D67C5E6621093BB1AB2B057BF9082AA03CFB.asc	svrngs svrngs-release-key.asc@722468375ce924f54c40711021494cd7fda316a2
-svrngs-bin.install	svrngs packaging/arch/svrngs-bin.install@722468375ce924f54c40711021494cd7fda316a2
-svrngs-give-bin.install	svrngs packaging/arch/svrngs-give-bin.install@722468375ce924f54c40711021494cd7fda316a2
-svrngs.desktop	svrngs packaging/arch/svrngs.desktop@722468375ce924f54c40711021494cd7fda316a2
-svrngs.service	svrngs packaging/arch/svrngs.service@722468375ce924f54c40711021494cd7fda316a2
-svrngs.svg	svrngs packaging/arch/svrngs.svg@722468375ce924f54c40711021494cd7fda316a2
+.gitignore	svrngs packaging/arch/.gitignore@e5d9813b46f8c5b5f12bb87feb850bdedb68f8bf
+PKGBUILD	svrngs packaging/arch/PKGBUILD@e5d9813b46f8c5b5f12bb87feb850bdedb68f8bf, with omarchy/updated-by's sum
+give.service	svrngs packaging/arch/give.service@e5d9813b46f8c5b5f12bb87feb850bdedb68f8bf
+keys/pgp/46B4D67C5E6621093BB1AB2B057BF9082AA03CFB.asc	svrngs svrngs-release-key.asc@e5d9813b46f8c5b5f12bb87feb850bdedb68f8bf
+svrngs-bin.install	svrngs packaging/arch/svrngs-bin.install@e5d9813b46f8c5b5f12bb87feb850bdedb68f8bf
+svrngs-give-bin.install	svrngs packaging/arch/svrngs-give-bin.install@e5d9813b46f8c5b5f12bb87feb850bdedb68f8bf
+svrngs.desktop	svrngs packaging/arch/svrngs.desktop@e5d9813b46f8c5b5f12bb87feb850bdedb68f8bf
+svrngs.service	svrngs packaging/arch/svrngs.service@e5d9813b46f8c5b5f12bb87feb850bdedb68f8bf
+svrngs.svg	svrngs packaging/arch/svrngs.svg@e5d9813b46f8c5b5f12bb87feb850bdedb68f8bf
 updated-by	svrngs-fam packaging/arch/omarchy/updated-by, in place of svrngs's

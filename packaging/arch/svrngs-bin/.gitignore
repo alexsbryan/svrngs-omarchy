@@ -1,4 +1,4 @@
-# Copied by ../bump from svrngs packaging/arch/.gitignore@722468375ce924f54c40711021494cd7fda316a2.
+# Copied by ../bump from svrngs packaging/arch/.gitignore@e5d9813b46f8c5b5f12bb87feb850bdedb68f8bf.
 # What makepkg leaves here.
 /src/
 /pkg/
