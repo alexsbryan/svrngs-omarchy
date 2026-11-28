@@ -1,12 +1,12 @@
 # Where each file here came from. ../bump writes this folder: change
 # svrngs's packaging/arch or ../omarchy/, then run it again.
-.gitignore	svrngs packaging/arch/.gitignore@e5d9813b46f8c5b5f12bb87feb850bdedb68f8bf
-PKGBUILD	svrngs packaging/arch/PKGBUILD@e5d9813b46f8c5b5f12bb87feb850bdedb68f8bf, with omarchy/updated-by's sum
-give.service	svrngs packaging/arch/give.service@e5d9813b46f8c5b5f12bb87feb850bdedb68f8bf
-keys/pgp/46B4D67C5E6621093BB1AB2B057BF9082AA03CFB.asc	svrngs svrngs-release-key.asc@e5d9813b46f8c5b5f12bb87feb850bdedb68f8bf
-svrngs-bin.install	svrngs packaging/arch/svrngs-bin.install@e5d9813b46f8c5b5f12bb87feb850bdedb68f8bf
-svrngs-give-bin.install	svrngs packaging/arch/svrngs-give-bin.install@e5d9813b46f8c5b5f12bb87feb850bdedb68f8bf
-svrngs.desktop	svrngs packaging/arch/svrngs.desktop@e5d9813b46f8c5b5f12bb87feb850bdedb68f8bf
-svrngs.service	svrngs packaging/arch/svrngs.service@e5d9813b46f8c5b5f12bb87feb850bdedb68f8bf
-svrngs.svg	svrngs packaging/arch/svrngs.svg@e5d9813b46f8c5b5f12bb87feb850bdedb68f8bf
+.gitignore	svrngs packaging/arch/.gitignore@cada091621be79ca2b2f8aecc5a95c9f6c4e80df
+PKGBUILD	svrngs packaging/arch/PKGBUILD@cada091621be79ca2b2f8aecc5a95c9f6c4e80df, with omarchy/updated-by's sum
+give.service	svrngs packaging/arch/give.service@cada091621be79ca2b2f8aecc5a95c9f6c4e80df
+keys/pgp/46B4D67C5E6621093BB1AB2B057BF9082AA03CFB.asc	svrngs svrngs-release-key.asc@cada091621be79ca2b2f8aecc5a95c9f6c4e80df
+svrngs-bin.install	svrngs packaging/arch/svrngs-bin.install@cada091621be79ca2b2f8aecc5a95c9f6c4e80df
+svrngs-give-bin.install	svrngs packaging/arch/svrngs-give-bin.install@cada091621be79ca2b2f8aecc5a95c9f6c4e80df
+svrngs.desktop	svrngs packaging/arch/svrngs.desktop@cada091621be79ca2b2f8aecc5a95c9f6c4e80df
+svrngs.service	svrngs packaging/arch/svrngs.service@cada091621be79ca2b2f8aecc5a95c9f6c4e80df
+svrngs.svg	svrngs packaging/arch/svrngs.svg@cada091621be79ca2b2f8aecc5a95c9f6c4e80df
 updated-by	svrngs-fam packaging/arch/omarchy/updated-by, in place of svrngs's
